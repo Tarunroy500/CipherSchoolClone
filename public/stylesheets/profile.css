@@ -1,0 +1,291 @@
+:root {
+    --black: #262c36;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  .main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  i {
+    cursor: pointer;
+  }
+  .cnt {
+    width: 100%;
+    display: flex;
+  }
+  /* ------------------------------------------------------ NAV --------------------------------------------------------  */
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7vmax;
+    background-color: var(--black);
+    border-bottom: 1px solid #4d4d4d;
+  }
+  .logos {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    gap: 2vmax;
+    width: 50%;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vmax;
+  }
+  .logo img {
+    width: 2.5vmax;
+  }
+  .logo span {
+    font-size: 1.5vmax;
+    font-weight: 400;
+  }
+  .browse {
+    display: flex;
+    gap: 0.5vmax;
+  }
+  .browse span {
+    font-weight: 100;
+  }
+  .searches {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .search {
+    width: 25vmax;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #16181d;
+    color: white;
+    padding: 0.2vmax 1vmax;
+    border-radius: 100px;
+  }
+  .search i {
+    font-size: 1vmax;
+  }
+  .search input {
+    width: 90%;
+    border: none;
+    background-color: #16181d;
+    color: white;
+    padding: 0.5vmax;
+    outline: none;
+  }
+  .noti i,
+  .profile i,
+  .item i {
+    color: white;
+    font-size: 1.5vmax;
+  }
+  
+  /* ------------------------------------------------------ LEFT NAV --------------------------------------------------------  */
+  .l-nav {
+    height: 93vh;
+    padding: 1vmax;
+    background-color: var(--black);
+    border-right: 1px solid #4d4d4d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .items,
+  .logout {
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+  }
+  .item {
+    /* padding: 1vmax; */
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 0.7vmax;
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #4d4d4d;
+  }
+  
+  /* ------------------------------------------------------ UI VERSE --------------------------------------------------------  */
+  
+  .switch input {
+    display: none;
+  }
+  
+  .switch {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 24px;
+    background: #4d4d4d;
+    border-radius: 100px;
+    padding: 0 2px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .slider {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 100px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    z-index: 1000;
+  }
+  
+  .icon {
+    display: block;
+    position: absolute;
+    transition: 0.3s;
+  }
+  
+  .sun {
+    right: 2px;
+    opacity: 1;
+  }
+  
+  .moon {
+    left: 2px;
+    opacity: 0;
+  }
+  
+  .switch:hover .slider,
+  .switch:focus .slider {
+    border: 1px solid #4d4d4d;
+    box-shadow: 0 0 2px 3px #86d46b;
+  }
+  
+  .switch:active .slider {
+    box-shadow: 0 0 5px 5px #86d46b;
+  }
+  
+  .switch input:checked + .slider {
+    transform: translateX(26px);
+  }
+  
+  .switch input:checked ~ .moon {
+    opacity: 1;
+  }
+  
+  .switch input:checked ~ .sun {
+    opacity: 0;
+  }
+  
+  /* ------------------------------------------------------ MAIN BODY NAV --------------------------------------------------------  */
+  
+  .home {
+    width: 100%;
+    background-color: var(--black);
+  }
+  .home-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--black);
+    border-bottom: 1px solid #4d4d4d;
+    background-image: url("https://www.cipherschools.com/static/media/ProfileCover.e525f2d51356332792cb.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 12vh;
+  }
+  .nav-profile {
+    background: linear-gradient(
+      to right,
+      var(--black),
+      transparent,
+      var(--black)
+    );
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .l-profile {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 1vmax;
+  }
+  .l-profile .img {
+    position: relative;
+    width: 5vmax;
+    height: 5vmax;
+  }
+  .l-profile .img i {
+    position: absolute;
+    bottom: -0.5vmax;
+    right: 1.8vmax;
+    background-color: var(--black);
+    color: white;
+    border-radius: 100%;
+    padding: 0.2vmax;
+  }
+  .l-profile .img img {
+    width: 5vmax;
+    height: 5vmax;
+    border-radius: 100%;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vmax;
+    color: white;
+  }
+  .details span {
+    font-size: 1.2vmax;
+    font-weight: 100;
+  }
+  .details .name {
+    font-size: 1.7vmax;
+    font-weight: 400;
+  }
+  .details .email {
+    font-size: 1vmax;
+    font-weight: 100;
+  }
+  .r-profile {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1.2vmax;
+    color: white;
+    font-weight: 100;
+  }
+  
+  /* ------------------------------------------------------ MAIN BODY --------------------------------------------------------  */
+  .home-cnt{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1vmax;
+  }
