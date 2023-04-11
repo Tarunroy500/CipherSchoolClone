@@ -27,7 +27,7 @@
             <p>Please provide your email and password to signin</p>
           </div>
         </div>
-        <div class="auth-form">
+        <form action="/profile" class="auth-form">
           <div class="auth-row">
             <div class="auth-login-error"><span></span></div>
           </div>
@@ -57,14 +57,14 @@
           <div class="auth-extra-row">
             <div class="auth-forget-password">Forgot Password ?</div>
           </div>
-          <button class="auth-login-btn auth-disabled" disabled="">
+          <button class="auth-login-btn auth-disabled">
             <span>Signin</span>
           </button>
           <div class="auth-bottom-row">
             <div class="auth-not-account-text">Don't have an account ?</div>
-            <span>Get Started</span>
+            <span><a id="reg" href="/register">Get Started</a></span>
           </div>
-        </div>
+        </form>
         <div class="auth-saperator"><span>OR</span></div>
         <div class="auth-google-login">
           <div class="S9gUrf-YoZ4jf" style="position: relative">

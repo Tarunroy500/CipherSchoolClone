@@ -16,6 +16,8 @@ html,body{
     line-height: 1.43;
     letter-spacing: 0.01071em;
     background-color: rgba(135, 110, 110, 0.217);
+    /* background: url(../images/bg.png); */
+    /* background-size: cover; */
 }
 .login-wrapper{
     width: 90vh;
@@ -217,4 +219,11 @@ b, h1, h2, h3, h4, h5, h6, strong {
     line-height: 18px;
     margin: -10px auto;
     width: 30px;
+}
+a {
+    text-decoration: none !important;
+}
+#reg{
+    color: #f3912e;
+
 }

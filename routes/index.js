@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
 router.get('/profile', function(req, res, next) {
   res.render('profile');
 });
+router.get('/register', function(req, res, next) {
+  res.render('register');
+});
+
 
 
 module.exports = router;
