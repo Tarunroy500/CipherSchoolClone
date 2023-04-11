@@ -26,8 +26,8 @@ html,body{
     border-radius: 20px;
     padding: 15px;
     box-shadow: 0 0 15px hsla(0,0%,100%,.2);
-    /* flex: 1 1; */
     overflow: scroll;
+    /* flex: 1 1; */
 }
 .login-header {
     color: #f1f1f1;
@@ -99,8 +99,8 @@ b, h1, h2, h3, h4, h5, h6, strong {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: 1rem;
     padding: 5px;
+    margin-top: 1rem;
     max-height: auto;
     width: 100%;
 }
