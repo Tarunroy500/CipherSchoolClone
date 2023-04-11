@@ -27,7 +27,7 @@
             <p>Please provide your email and password to signin</p>
           </div>
         </div>
-        <form action="/profile" class="auth-form">
+        <form method="post" action="/login" class="auth-form">
           <div class="auth-row">
             <div class="auth-login-error"><span></span></div>
           </div>
@@ -37,6 +37,7 @@
               class="auth-input-box"
               placeholder="Email ID"
               value=""
+              name="email"
             />
           </div>
           <div class="auth-row">
@@ -47,6 +48,7 @@
                 class="auth-input-box"
                 placeholder="Password"
                 value=""
+                name="password"
               /><img
                 src="https://www.cipherschools.com/static/media/Eye.270f75dfd9c2b2af1ea99439d7cf3d9c.svg"
                 alt="eye"

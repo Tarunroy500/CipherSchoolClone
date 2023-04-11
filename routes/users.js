@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const mongoose = require('mongoose')
+const plm=require("passport-local-mongoose");
+mongoose.connect("mongodb://127.0.0.1:27017/cipherSchools");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+const UserSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  phone: Number,
 });
-
-module.exports = router;
+UserSchema.plugin(plm,{usernameField:'email'})
+module.exports = mongoose.model("cipherSchools",UserSchema);
