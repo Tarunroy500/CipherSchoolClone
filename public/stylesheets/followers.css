@@ -7,9 +7,6 @@
     padding: 20px;
     width: 250px;
   }
-  h2{
-    color: white;
-  }
   .profile-wrapper{
     display: flex;
     flex-flow: row wrap;
@@ -27,7 +24,8 @@
   
   .profile-name {
     margin-top: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    color: grey;
   }
   
   .follow-button {
