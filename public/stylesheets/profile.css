@@ -1,291 +1,604 @@
 :root {
-    --black: #262c36;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
-  }
-  
-  html,
-  body {
-    height: 100%;
-  }
-  .main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  i {
-    cursor: pointer;
-  }
-  .cnt {
-    width: 100%;
-    display: flex;
-  }
-  /* ------------------------------------------------------ NAV --------------------------------------------------------  */
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7vmax;
-    background-color: var(--black);
-    border-bottom: 1px solid #4d4d4d;
-  }
-  .logos {
-    display: flex;
-    color: #fff;
-    align-items: center;
-    gap: 2vmax;
-    width: 50%;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1vmax;
-  }
-  .logo img {
-    width: 2.5vmax;
-  }
-  .logo span {
-    font-size: 1.5vmax;
-    font-weight: 400;
-  }
-  .browse {
-    display: flex;
-    gap: 0.5vmax;
-  }
-  .browse span {
-    font-weight: 100;
-  }
-  .searches {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .search {
-    width: 25vmax;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #16181d;
-    color: white;
-    padding: 0.2vmax 1vmax;
-    border-radius: 100px;
-  }
-  .search i {
-    font-size: 1vmax;
-  }
-  .search input {
-    width: 90%;
-    border: none;
-    background-color: #16181d;
-    color: white;
-    padding: 0.5vmax;
-    outline: none;
-  }
-  .noti i,
-  .profile i,
-  .item i {
-    color: white;
-    font-size: 1.5vmax;
-  }
-  
-  /* ------------------------------------------------------ LEFT NAV --------------------------------------------------------  */
-  .l-nav {
-    height: 93vh;
-    padding: 1vmax;
-    background-color: var(--black);
-    border-right: 1px solid #4d4d4d;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .items,
-  .logout {
-    display: flex;
-    flex-direction: column;
-    gap: 1vmax;
-  }
-  .item {
-    /* padding: 1vmax; */
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-size: 0.7vmax;
-  }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: #4d4d4d;
-  }
-  
-  /* ------------------------------------------------------ UI VERSE --------------------------------------------------------  */
-  
-  .switch input {
-    display: none;
-  }
-  
-  .switch {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    width: 50px;
-    height: 24px;
-    background: #4d4d4d;
-    border-radius: 100px;
-    padding: 0 2px;
-    transition: 0.3s;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .slider {
-    display: flex;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 100px;
-    transition: 0.3s;
-    border: 1px solid transparent;
-    z-index: 1000;
-  }
-  
-  .icon {
-    display: block;
-    position: absolute;
-    transition: 0.3s;
-  }
-  
-  .sun {
-    right: 2px;
-    opacity: 1;
-  }
-  
-  .moon {
-    left: 2px;
-    opacity: 0;
-  }
-  
-  .switch:hover .slider,
-  .switch:focus .slider {
-    border: 1px solid #4d4d4d;
-    box-shadow: 0 0 2px 3px #86d46b;
-  }
-  
-  .switch:active .slider {
-    box-shadow: 0 0 5px 5px #86d46b;
-  }
-  
-  .switch input:checked + .slider {
-    transform: translateX(26px);
-  }
-  
-  .switch input:checked ~ .moon {
-    opacity: 1;
-  }
-  
-  .switch input:checked ~ .sun {
-    opacity: 0;
-  }
-  
-  /* ------------------------------------------------------ MAIN BODY NAV --------------------------------------------------------  */
-  
-  .home {
-    width: 100%;
-    background-color: var(--black);
-  }
-  .home-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--black);
-    border-bottom: 1px solid #4d4d4d;
-    background-image: url("https://www.cipherschools.com/static/media/ProfileCover.e525f2d51356332792cb.png");
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 12vh;
-  }
-  .nav-profile {
-    background: linear-gradient(
-      to right,
-      var(--black),
-      transparent,
-      var(--black)
-    );
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .l-profile {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    gap: 1vmax;
-  }
-  .l-profile .img {
-    position: relative;
-    width: 5vmax;
-    height: 5vmax;
-  }
-  .l-profile .img i {
-    position: absolute;
-    bottom: -0.5vmax;
-    right: 1.8vmax;
-    background-color: var(--black);
-    color: white;
-    border-radius: 100%;
-    padding: 0.2vmax;
-  }
-  .l-profile .img img {
-    width: 5vmax;
-    height: 5vmax;
-    border-radius: 100%;
-  }
-  .details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5vmax;
-    color: white;
-  }
-  .details span {
-    font-size: 1.2vmax;
-    font-weight: 100;
-  }
-  .details .name {
-    font-size: 1.7vmax;
-    font-weight: 400;
-  }
-  .details .email {
-    font-size: 1vmax;
-    font-weight: 100;
-  }
-  .r-profile {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    font-size: 1.2vmax;
-    color: white;
-    font-weight: 100;
-  }
-  
-  /* ------------------------------------------------------ MAIN BODY --------------------------------------------------------  */
-  .home-cnt{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1vmax;
-  }
+  --black: #262c36;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+html,
+body {
+  height: 99%;
+
+}
+a{
+  text-decoration: none;
+}
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+i {
+  cursor: pointer;
+}
+.cnt {
+  width: 100%;
+  display: flex;
+}
+.name{
+  display: flex;
+  gap: 8px;
+}
+/* ------------------------------------------------------ OVERLAY --------------------------------------------------------  */
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.box-cnt{
+  width: 45vmax;
+  background-color: #262c36;
+  padding: 2vmax;
+  border-radius: 10px;
+  color: white;
+}
+.box-nav{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.box-nav span{
+  font-size: 1.3vmax;
+  font-weight: 500;
+}
+.box-nav button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5vmax;
+  cursor: pointer;
+}
+.box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.img-cnt{
+  position: relative;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-cnt img{
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 100%;
+}
+.img-cnt i{
+  position: absolute;
+  bottom: -1.5vmax;
+  background-color: var(--black);
+  color: white;
+  border-radius: 100%;
+  padding: 0.6vmax;
+}
+.fields{
+    width: 70%;
+}
+.field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5vmax;
+}
+.field label{
+  font-size: 0.9vmax;
+  font-weight: 500;
+  margin-bottom: 0.5vmax;
+  color: rgba(246, 246, 246, 0.803);
+}
+.field input{
+  width: 100%;
+  background-color: #16181d;
+  border: none;
+  color: white;
+  padding: 0.7vmax;
+  outline: none;
+  border-radius: 5px;
+}
+.btns{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 1vmax;
+}
+.btns button{
+  width: 30%;
+  background-color: #16181d;
+  border: none;
+  color: white;
+  padding: 0.7vmax;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btns button:nth-child(2){
+  background-color: #f2912e;
+}
+.btns button:nth-child(2):hover{
+  background-color: #d78e27;
+}
+.btns button:nth-child(1):hover{
+  background-color: #4d4d4d;
+}
+/* ------------------------------------------------------ NAV --------------------------------------------------------  */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7vmax;
+  background-color: var(--black);
+  border-bottom: 1px solid #4d4d4d;
+}
+.logos {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  gap: 2vmax;
+  width: 50%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vmax;
+}
+.logo img {
+  width: 2.5vmax;
+}
+.logo span {
+  font-size: 1.5vmax;
+  font-weight: 400;
+}
+.browse {
+  display: flex;
+  gap: 0.5vmax;
+}
+.browse span {
+  font-weight: 100;
+}
+.searches {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.search {
+  width: 25vmax;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #16181d;
+  color: white;
+  padding: 0.2vmax 1vmax;
+  border-radius: 100px;
+}
+.search i {
+  font-size: 1vmax;
+}
+.search input {
+  width: 90%;
+  border: none;
+  background-color: #16181d;
+  color: white;
+  padding: 0.5vmax;
+  outline: none;
+}
+.noti i,
+.profile i,
+.item i {
+  color: white;
+  font-size: 1.5vmax;
+}
+
+/* -------------------------------------------------- ---- LEFT NAV --------------------------------------------------------  */
+.l-nav {
+  height: 91.5vh;
+  padding: 1vmax 0;
+  background-color: var(--black);
+  border-right: 1px solid #4d4d4d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.items,
+.logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vmax;
+}
+.item {
+  /* padding: 1vmax; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 0.7vmax;
+}
+.item span{
+  text-align: center;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #4d4d4d;
+}
+
+/* ------------------------------------------------------ UI VERSE --------------------------------------------------------  */
+
+.switch input {
+  display: none;
+}
+
+.switch {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 24px;
+  background: #4d4d4d;
+  border-radius: 100px;
+  padding: 0 2px;
+  transition: 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 100px;
+  transition: 0.3s;
+  border: 1px solid transparent;
+  z-index: 1000;
+}
+
+.icon {
+  display: block;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.sun {
+  right: 2px;
+  opacity: 1;
+}
+
+.moon {
+  left: 2px;
+  opacity: 0;
+}
+
+.switch:hover .slider,
+.switch:focus .slider {
+  border: 1px solid #4d4d4d;
+  box-shadow: 0 0 2px 3px #86d46b;
+}
+
+.switch:active .slider {
+  box-shadow: 0 0 5px 5px #86d46b;
+}
+
+.switch input:checked + .slider {
+  transform: translateX(26px);
+}
+
+.switch input:checked ~ .moon {
+  opacity: 1;
+}
+
+.switch input:checked ~ .sun {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------ MAIN BODY NAV --------------------------------------------------------  */
+
+.home {
+  width: 100%;
+  background-color: var(--black);
+}
+.home-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  border-bottom: 1px solid #4d4d4d;
+  background-image: url("https://www.cipherschools.com/static/media/ProfileCover.e525f2d51356332792cb.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 12vh;
+}
+.nav-profile {
+  background: linear-gradient(
+    to right,
+    var(--black),
+    transparent,
+    var(--black)
+  );
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.l-profile {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+}
+.l-profile .img {
+  position: relative;
+  width: 5vmax;
+  height: 5vmax;
+}
+.l-profile .img i {
+  position: absolute;
+  bottom: -0.5vmax;
+  right: 1.8vmax;
+  background-color: var(--black);
+  color: white;
+  border-radius: 100%;
+  padding: 0.2vmax;
+}
+.l-profile .img img {
+  width: 5vmax;
+  height: 5vmax;
+  border-radius: 100%;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vmax;
+  color: white;
+}
+.details span {
+  font-size: 1.2vmax;
+  font-weight: 100;
+}
+.details .name {
+  font-size: 1.7vmax;
+  font-weight: 400;
+}
+.details .email {
+  font-size: 1vmax;
+  font-weight: 100;
+}
+.r-profile {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 1.2vmax;
+  color: white;
+  font-weight: 100;
+}
+
+/* ------------------------------------------------------ MAIN BODY --------------------------------------------------------  */
+.home-cnt {
+  width: 100%;
+  height: 79.7vh;
+  background-color: #16181d;
+  padding: 0 1vmax;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-cnt::-webkit-scrollbar{
+  background-color: black;
+  width: 8px;
+}
+.home-cnt::-webkit-scrollbar-thumb{
+background-color: hsla(0,0%,100%,.85);
+border-radius: 50px;
+}
+
+.about,
+.on-web,
+.pro-info,
+.pass,
+.interest,
+.map {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vmax 0;
+}
+.a-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vmax;
+}
+.a-title {
+  font-size: 1.1vmax;
+  font-weight: 500;
+  color: white;
+}
+.a-btn,
+.web-btn {
+  background-color: #f3942b;
+  color: white;
+  padding: 0.3vmax 1.8vmax;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.textarea {
+  width: 97%;
+  background-color: #262c36;
+  border: none;
+  color: white;
+  font-size: 1vmax;
+  font-weight: 100;
+  padding: 1vmax;
+  resize: none;
+}
+.about textarea {
+  border-radius: 8px;
+  height: 15vh;
+  outline: none;
+}
+.divider {
+  width: 97%;
+  padding: 1px;
+  background-color: #2e2f33;
+}
+.map-title {
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 1vmax;
+}
+.web-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vmax;
+}
+.web-cnt {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.web {
+  padding: 1vmax;
+}
+.web i {
+  color: #717382;
+  padding: 0.2vmax;
+  font-size: 1.5vmax;
+}
+.web label {
+  color: white;
+  font-size: 1.1vmax;
+  font-weight: 200;
+}
+.inp-cnt {
+  padding: 0.2vmax 0.5vmax;
+  width: 43vmax;
+  background-color: #262c36;
+  margin-top: 0.5vmax;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inp-cnt input {
+  width: 88%;
+  background-color: #262c36;
+  border: none;
+  color: white;
+  font-size: 1vmax;
+  font-weight: 100;
+  resize: none;
+  outline: none;
+}
+.pro-cnt {
+  width: 100%;
+  padding: 0 1vmax;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dropdown{
+  margin-top: 0.5vmax;
+}
+.dropdowns label{
+  color: white;
+  font-size: 1.1vmax;
+  font-weight: 200;
+}
+.dropdown {
+  padding: 0.2vmax 0.5vmax;
+  width: 45vmax;
+  background-color: #262c36;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dropdown select {
+  width: 100%;
+  background-color: #262c36;
+  border: none;
+  color: white;
+  font-size: 1vmax;
+  font-weight: 100;
+  padding: 0.5vmax;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+}
+.dropdown select option {
+  background-color: #262c36;
+  color: white;
+  font-size: 1vmax;
+  font-weight: 100;
+  padding: 1vmax;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+}
+.pass-cnt{
+  width: 100%;
+  padding: 0 1vmax;
+}
+.pass-cnt label{
+  color: white;
+  font-size: 1.1vmax;
+  font-weight: 200;
+}
+.pass-cnt input{
+  width: 100%;
+  background-color: #262c36;
+  border: none;
+  color: white;
+  font-size: 1vmax;
+  font-weight: 100;
+  padding: 0.5vmax 1vmax;
+  resize: none;
+  outline: none;
+  border-radius: 8px;
+  margin-top: 0.5vmax;
+}
