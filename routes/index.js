@@ -47,9 +47,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/followers", async (req, res, next) => {
-  // let loggedinUser= await userSchema.findOne({username:req.session.passport.user})
   let allUser = await UserSchema.find();
-  // console.log(allUser);
   res.render("followers", { allUser });
 });
 
