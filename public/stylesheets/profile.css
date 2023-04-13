@@ -34,7 +34,7 @@ i {
   gap: 8px;
 }
 /* ------------------------------------------------------ OVERLAY --------------------------------------------------------  */
-.overlay{
+.overlay,.overlay2{
   position: fixed;
   top: 0;
   left: 0;
@@ -98,7 +98,7 @@ i {
   border-radius: 100%;
   padding: 0.6vmax;
 }
-.fields{
+.fields,.fields1{
     width: 70%;
 }
 .field{
@@ -146,6 +146,9 @@ i {
 }
 .btns button:nth-child(1):hover{
   background-color: #4d4d4d;
+}
+.overlay2 .box-cnt .fields,.fields1{
+  width: 100%;
 }
 /* ------------------------------------------------------ NAV --------------------------------------------------------  */
 
@@ -602,3 +605,34 @@ border-radius: 50px;
   border-radius: 8px;
   margin-top: 0.5vmax;
 }
+
+
+
+
+
+
+
+.follow-home{
+  padding: 2.6vh;
+  background-color: #15181E;
+}
+.follow-header{
+  font-size: 1.2vmax;
+  color: #fff;
+}
+
+.map{
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.month{
+  /* position: relative;
+  top: 15%; */
+  display: flex;
+  gap: 50px;
+  margin-left: 100px;
+  color: #fff;
+  font-weight: lighter;
+}
+

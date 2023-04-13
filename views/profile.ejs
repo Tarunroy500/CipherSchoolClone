@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="../stylesheets/profile.css" />
+    <link rel="stylesheet" href="../stylesheets/heatmap.css">
   </head>
   <body>
     <div class="overlay">
@@ -50,6 +51,30 @@
             <div class="btns">
               <button class="cancel">Cancel</button>
               <button type="submit" class="save">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="overlay2">
+      <div class="box-cnt">
+        <div class="box">
+          <form action="/changepassword" method="post" class="fields1">
+            <div class="field">
+              <label for="firstname">Current Password</label>
+              <input type="text" name="oldpassword" required placeholder="Current Password" />
+            </div>
+            <div class="field">
+              <label for="lastname">New Password</label>
+              <input type="text" name="newPassword" required placeholder="New Password" />
+            </div>
+            <div class="field">
+              <label for="email">Confirm Password</label>
+              <input type="text" required placeholder="Confirm Password" />
+            </div>
+            <div class="btns">
+              <button class="cancel">Cancel</button>
+              <button type="submit" class="save1">Save</button>
             </div>
           </form>
         </div>
@@ -119,16 +144,17 @@
               <i class="bi bi-universal-access-circle"></i>
               <span>Creater Access</span>
             </div>
-            <div class="item">
-              <i class="bi bi-house-fill"></i> <span>Home</span>
-            </div>
+            
           </div>
-          <div class="logout">
-            <div class="divider"></div>
-            <div class="item">
-              <i class="bi bi-house-fill"></i> <span>logout</span>
+          <a class="logout" href="/logout">
+
+            <div class="logout">
+              <div class="divider"></div>
+              <div class="item">
+                <i class="bi bi-box-arrow-right"></i> <span>logout</span>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         <div class="home">
           <div class="home-nav">
@@ -151,7 +177,7 @@
                   <div class="email"><%= user.email %></div>
                 </div>
               </div>
-              <div class="r-profile">0 Followers</div>
+              <a class="r-profile" href="/followers"><div class="r-profile">0 Followers</div></a>
             </div>
           </div>
           <div class="home-cnt">
@@ -164,7 +190,27 @@
             </div>
             <div class="divider"></div>
             <div class="map">
+              
+              <div class="month">
+              <h5>may</h5>
+              <h5>Jun</h5>
+              <h5>Jul</h5>
+              <h5>Aug</h5>
+              <h5>Sep</h5>
+              <h5>Oct</h5>
+              <h5>Nov</h5>
+              <h5>Dec</h5>
+              <h5>Jan</h5>
+              <h5>Feb</h5>
+              <h5>Mar</h5></div>
+              
               <div class="map-title">CIPHER MAP</div>
+              <table>
+                <thead>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
             </div>
             <div class="divider"></div>
             <div class="on-web">
@@ -262,7 +308,7 @@
             <div class="pass">
               <div class="a-nav">
                 <div class="a-title">PASSWORD & SECURITY</div>
-                <button class="a-btn">Change</button>
+                <button class="toggle-overlay2 a-btn">Change</button>
               </div>
               <div class="pass-cnt">
                 <label for="password">Password</label>
@@ -282,9 +328,27 @@
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      const tbody = document.querySelector("tbody");
+  
+  // Generate 32 td elements for each week
+  for (let i = 0; i < 7; i++) {
+    const tr = document.createElement("tr");
+    for (let j = 0; j < 50; j++) {
+      const td = document.createElement("td");
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  
+  
+  
+    </script>
+    <script>
       var form = document.querySelector(".fields");
       var overlay = document.querySelector(".overlay");
       var savebtn = document.querySelector(".save");
+      // var savebtn1 = document.querySelector(".save1");
+
 
       form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -325,6 +389,9 @@
       var handleImage = document.querySelector(".handleImage");
       var file = document.querySelector(".file");
       var filesubmit = document.querySelector(".filesubmit");
+      var overlay2 = document.querySelector(".overlay2");
+      var toggleoverlay2 = document.querySelector(".toggle-overlay2");
+
 
       handleImage.addEventListener("click",()=>{
         file.click()
@@ -353,6 +420,21 @@
       });
       toggleoverlay.addEventListener("click", function () {
         overlay.style.display = "flex";
+      });
+      overlay2.addEventListener("click", function (e) {
+        if (
+          e.target.classList.contains("overlay2") ||
+          e.target.classList.contains("bi-x") ||
+          e.target.classList.contains("cancel")
+        ) {
+          overlay2.style.display = "none";
+        }
+      });
+      toggleoverlay.addEventListener("click", function () {
+        overlay.style.display = "flex";
+      });
+      toggleoverlay2.addEventListener("click", function () {
+        overlay2.style.display = "flex";
       });
     </script>
   </body>

@@ -90,14 +90,14 @@ router.get("/logout", function (req, res, next) {
 //   res.send("hi")
 // });
 
-// router.post('/changepassword', async function (req, res) {
-//   // console.log(req.body.oldpassword,req.body.newPassword,req.session.passport.user);
-//   let User = await UserSchema.findOne({ email: req.user.email })
-//   User.changePassword(req.body.oldpassword,req.body.newPassword,function(){
-//     res.redirect("/profile")
-//   })
+router.post('/changepassword', async function (req, res) {
+  // console.log(req.body.oldpassword,req.body.newPassword,req.session.passport.user);
+  let User = await UserSchema.findOne({ email: req.user.email })
+  User.changePassword(req.body.oldpassword,req.body.newPassword,function(){
+    res.redirect("/profile")
+  })
 
-// });
+});
 router.post("/upload", upload.single("photo"), async function (req, res, next) {
   console.log(req.user.email);
   var User = await UserSchema.findOne({ email: req.user.email });
@@ -105,7 +105,7 @@ router.post("/upload", upload.single("photo"), async function (req, res, next) {
   console.log(req.file);
   User.profilePhoto = "../images/" + req.file.filename;
   await User.save();
-  res.send("images uploaded");
+  res.redirect("/profile");
 });
 
 module.exports = router;
