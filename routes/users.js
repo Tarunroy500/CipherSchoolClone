@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/cipherSchools");
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+// mongoose.connect("mongodb://127.0.0.1:27017/cipherSchools");
 
 const UserSchema = new mongoose.Schema({
   firstName: String,
