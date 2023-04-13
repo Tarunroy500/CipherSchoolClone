@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="../stylesheets/profile.css">
+    <link rel="stylesheet" href="../stylesheets/followers.css">
 </head>
 <body>
     <div class="main">
@@ -91,6 +92,16 @@
           </div>
         <div class="home follow-home">
             <div class="follow-header">Users Following You</div>
+            <div class="profile-wrapper">
+                <% allUser.forEach(function(i){ %>
+                <div class="profile-card">
+                    <img src="<%= i.profilePhoto %>" alt="Profile Image" class="profile-image">
+                    <h2 class="profile-name"><%= i.firstName %> <% i.lastName %></h2>
+                    <button class="follow-button">Follow</button>
+                  </div>
+                <% }) %>
+            </div>
+        
         </div>
     </div>
 </html>

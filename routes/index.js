@@ -1,12 +1,13 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const UserSchema = require("./users");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-var path = require("path");
+const path = require("path");
 const multer = require("multer");
 const LocalStrategy = require("passport-local");
 const bcrypt = require("bcrypt");
+
 router.use(bodyParser.urlencoded({ extended: false }));
 passport.use(
   new LocalStrategy({ usernameField: "email" }, UserSchema.authenticate())
@@ -14,11 +15,21 @@ passport.use(
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/images"); // Set the destination folder for storing the uploaded file
+    cb(null, "./public/images", (err) => {
+      if (err) {
+        console.error(err);
+        return cb(err);
+      }
+    });
   },
   filename: (req, file, cb) => {
     console.log(file);
-    cb(null, Date.now() + "-"  + file.originalname); // Set the filename for the uploaded file
+    cb(null, Date.now() + "-" + file.originalname, (err) => {
+      if (err) {
+        console.error(err);
+        return cb(err);
+      }
+    });
   },
 });
 
@@ -26,42 +37,65 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("login");
+router.get("/", (req, res, next) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
 });
-router.get("/followers", function (req, res, next) {
-  res.render("followers");
+
+router.get("/followers", async (req, res, next) => {
+  // let loggedinUser= await userSchema.findOne({username:req.session.passport.user})
+  let allUser = await UserSchema.find();
+  // console.log(allUser);
+  res.render("followers", { allUser });
 });
-router.get("/profile", function (req, res, next) {
-  // console.log(req.user);
-  res.render("profile", { user: req.user });
+
+router.get("/profile", (req, res, next) => {
+  try {
+    res.render("profile", { user: req.user });
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
 });
-router.get("/register", function (req, res, next) {
-  res.render("register");
+
+router.get("/register", (req, res, next) => {
+  try {
+    res.render("register");
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
 });
-router.post("/register", function (req, res, next) {
-  const newUser = new UserSchema({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    phone: req.body.phone,
-    profilePhoto:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F606226799816244316%2F&psig=AOvVaw2L6TrrKe2h_XJwzOBglaTf&ust=1681468697208000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPitiZXVpv4CFQAAAAAdAAAAABAE",
-  });
-  // password=req.body.password;
-  UserSchema.register(newUser, req.body.password).then(function (u) {
-    passport.authenticate("local")(req, res, function () {
+
+router.post("/register", async (req, res, next) => {
+  try {
+    const newUser = new UserSchema({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      phone: req.body.phone,
+    });
+    await UserSchema.register(newUser, req.body.password);
+    passport.authenticate("local")(req, res, () => {
       res.redirect("/profile");
     });
-  });
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
 });
+
 router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/login",
   }),
-  function (req, res, next) {}
+  (req, res, next) => {}
 );
 router.post("/update", async function (req, res) {
   var updatedData = req.body;

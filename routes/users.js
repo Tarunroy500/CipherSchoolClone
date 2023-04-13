@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
   password: String,
   profilePhoto: {
     type: String,
-    default: "",
+    default: "https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png",
   },
 });
 UserSchema.plugin(plm, { usernameField: "email" });
